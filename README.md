@@ -12,6 +12,7 @@ Exit virtual environment: deactivate
 
 * install dependancies
 ```
+Enter virtual environment: source virtual/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -23,6 +24,8 @@ pip install -r requirements.txt
 ```
 KEY='<KEY>'
 SECRET_KEY='<SECRET_KEY>'
+USERNAME='<USERNAME>'
+PASSWORD='<PASSWORD>'
 ```
 
 ### AoB
