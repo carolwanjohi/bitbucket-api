@@ -33,3 +33,5 @@ pip freeze > requirements.txt
 
 ### Interesting reads
 * [Reading Environment Variables From .Env File In Python](https://robinislam.me/blog/reading-environment-variables-in-python/)
+* [Installing packages using pip and virtual environments](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+* [Requirements Files](https://pip.pypa.io/en/latest/user_guide/#requirements-files)
