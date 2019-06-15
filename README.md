@@ -28,6 +28,16 @@ USERNAME='<USERNAME>'
 PASSWORD='<PASSWORD>'
 ```
 
+### How to run
+```
+source virtual/bin/activate
+pip install -r requirements.txt
+To use get_access_token
+    python bitbucket_api.py 1
+To use other_get_access_token
+    python bitbucket_api.py 2
+```
+
 ### AoB
 * updating `requirements.txt` with new installations
 ```
