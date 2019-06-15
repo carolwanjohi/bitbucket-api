@@ -15,7 +15,7 @@ def get_access_token(username, password, key, secret_key):
     return response["access_token"]
 
 def get_open_pull_requests(access_token):
-    url = 'https://bitbucket.org/!api/2.0/pullrequests/jadema?state=OPEN'
+    url = 'https://bitbucket.org/!api/2.0/pullrequests/carolwanjohi?'
     params = {'state': 'OPEN', 'access_token': access_token}
     response = requests.get(url, params)
     return response.json()
