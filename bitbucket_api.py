@@ -7,8 +7,8 @@ def get_access_token(key, secret_key):
     # Using variables.
     print('key', key)
     print('secret_key',secret_key)
-
-    response = requests.post('https://bitbucket.org/site/oauth2/access_token', auth=(key, secret_key))
+    url = 'https://bitbucket.org/site/oauth2/access_token'
+    response = requests.post(url, auth=(key, secret_key))
     
     return response.json()
 
