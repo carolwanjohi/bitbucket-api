@@ -2,8 +2,17 @@
 Connecting to bitbucket api with a python script
 
 ### Requirements
+* virtual environment
+```
+* Install virtual environment: python3 -m pip install --user virtualenv
+* Create virtual environment: python3 -m venv virtual
+* Enter virtual environment: source virtual/bin/activate
+* Exit virtual environment: deactivate
+```
+
 * dotenv
 ```
+* Enter virtual environment: source virtual/bin/activate
 pip install -U python-dotenv
 ```
 
