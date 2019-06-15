@@ -10,10 +10,9 @@ Enter virtual environment: source virtual/bin/activate
 Exit virtual environment: deactivate
 ```
 
-* dotenv
+* install dependancies
 ```
-Enter virtual environment: source virtual/bin/activate
-pip install -U python-dotenv
+pip install -r requirements.txt
 ```
 
 * [Create bitbucket OAuth](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html)
@@ -24,6 +23,12 @@ pip install -U python-dotenv
 ```
 KEY='<KEY>'
 SECRET_KEY='<SECRET_KEY>'
+```
+
+### AoB
+* updating `requirements.txt` with new installations
+```
+pip freeze > requirements.txt
 ```
 
 ### Interesting reads
