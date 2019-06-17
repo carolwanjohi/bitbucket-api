@@ -39,8 +39,14 @@ def get_bitbucket_username():
     return bitbucket_username
 
 def get_pull_request_status():
-    pull_request_status = input("These are the avaiable pull request status\n1.OPEN\n2.MERGED\n3.DECLINED\n4.SUPERSEDED\nEnter one of the pull request statuses: ")
-    return pull_request_status.upper()
+    pull_request_statuses = ['OPEN', 'MERGED', 'DECLINED', 'SUPERSEDED']
+    user_message = 'These are the avaiable pull request status\n1.{}\n2.{}\n3.{}\n4.{}\nEnter one of the pull request statuses: '.format(pull_request_statuses[0], pull_request_statuses[1], pull_request_statuses[2], pull_request_statuses[3])
+    pull_request_status = input(user_message).upper()
+    if pull_request_status in pull_request_statuses:
+        return pull_request_status
+    else:
+        print(pull_request_status+" does not exist so get "+ pull_request_statuses[0]+" pull requests")
+        return pull_request_statuses[0]
 
 def get_pull_requests(bitbbucket_username,pull_request_status,access_token):
     url = 'https://bitbucket.org/!api/2.0/pullrequests/'+bitbbucket_username+'?'
