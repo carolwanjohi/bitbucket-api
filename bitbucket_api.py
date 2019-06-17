@@ -34,8 +34,12 @@ def other_get_access_token(key):
     response = requests.get(url, params)
     return response
 
-def get_open_pull_requests(access_token):
-    url = 'https://bitbucket.org/!api/2.0/pullrequests/carolwanjohi?'
+def get_bitbucket_username():
+    bitbucket_username = input("Enter bitbucket username: ")
+    return bitbucket_username
+
+def get_open_pull_requests(bitbbucket_username,access_token):
+    url = 'https://bitbucket.org/!api/2.0/pullrequests/'+bitbbucket_username+'?'
     params = {'state': 'OPEN', 'access_token': access_token}
     response = requests.get(url, params)
     return response.json()
@@ -59,6 +63,10 @@ if __name__ == '__main__':
     access_token = select_method_to_get_access_token(method_selected)    
     print('access_token', access_token)
 
+    # Get bitbucket username
+    bitbucket_username = get_bitbucket_username()
+    print('bitbucket_username', bitbucket_username)
+
     # Get Open PR
-    open_pull_requests = get_open_pull_requests(access_token)
+    open_pull_requests = get_open_pull_requests(bitbucket_username,access_token)
     print('open_pull_requests', open_pull_requests)
