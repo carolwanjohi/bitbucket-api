@@ -37,6 +37,14 @@ To use get_access_token
 To use other_get_access_token
     python bitbucket_api.py other
 ```
+Running tests
+```
+pytest --v
+```
+Running tests with coverage
+```
+pytest -v --cov=bitbucket_api
+```
 
 ### AoB
 * updating `requirements.txt` with new installations
