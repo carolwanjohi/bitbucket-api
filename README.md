@@ -18,6 +18,8 @@ pip install -r requirements.txt
 
 * [Create bitbucket OAuth](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html)
 
+* [Create a Slack app and get the webhook URL](https://api.slack.com/incoming-webhooks)
+
 * Create `.env` in root directory of the project
 
 * Add the following information into your `.env`
@@ -26,6 +28,7 @@ KEY='<KEY>'
 SECRET_KEY='<SECRET_KEY>'
 USERNAME='<USERNAME>'
 PASSWORD='<PASSWORD>'
+POST_URL='<SlackWebhook>'
 ```
 
 ### How to run

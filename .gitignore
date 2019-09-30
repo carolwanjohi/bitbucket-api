@@ -4,3 +4,4 @@ virtual/
 .vscode/
 *.pyc
 .coverage
+.idea/

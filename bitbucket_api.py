@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 
+
 def get_user_input():
     if len(sys.argv) == 1:
         print("Will run get_access_token")
@@ -50,11 +51,32 @@ def get_pull_request_status():
         print(str(pull_request_status)+" does not exist so get "+ pull_request_statuses[1]+" pull requests")
         return pull_request_statuses[1]
 
+def format_pull_requests(pull_request_response):
+    lines = []
+    for i in pull_request_response['values']:
+        line = '- *{0}* <{1}|{2}> - by {3}'.format(i['source']['branch']['name'],i['links']['html']['href'],i['title'],i['author']['display_name'])
+        lines.append(line)
+    return lines
+
 def get_pull_requests(bitbbucket_username,pull_request_status,access_token):
+    lines = []
     url = 'https://bitbucket.org/!api/2.0/pullrequests/'+bitbbucket_username+'?'
     params = {'state': pull_request_status, 'access_token': access_token}
     response = requests.get(url, params)
-    return response.json()
+    pull_request_response = response.json()
+    lines += format_pull_requests(pull_request_response)
+
+    return pull_request_response
+
+def send_to_slack(pr_list):
+    for item in pr_list:
+        text = item['links']['html']['href']
+        author = item['author']['nickname']
+        slack_msg = {
+            'text': author + ': '+ text
+        }
+        response = requests.post(os.getenv('POST_URL'), headers={'Content-Type': 'application/json'},data=json.dumps(slack_msg))
+
 
 if __name__ == '__main__':
     # Get env file where SECRET and KEY are
@@ -85,4 +107,7 @@ if __name__ == '__main__':
 
     # Get Open PR
     open_pull_requests = get_pull_requests(bitbucket_username,pull_request_status,access_token)
-    print('open_pull_requests', open_pull_requests)
+    print('pull_requests', open_pull_requests)
+
+    #Send to Slack
+    send_to_slack(open_pull_requests['values'])
