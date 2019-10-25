@@ -29,6 +29,8 @@ SECRET_KEY='<SECRET_KEY>'
 USERNAME='<USERNAME>'
 PASSWORD='<PASSWORD>'
 POST_URL='<SlackWebhook>'
+BITBUCKET_USERNAME='<Bitbucket_Username>'
+REPOSLUG_LIST='<reposlug>'
 ```
 
 ### How to run
